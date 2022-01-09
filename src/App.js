@@ -1,22 +1,23 @@
 import React from 'react';
-import Hello from './Hello';
-import './App.css';
+import { createGlobalStyle } from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
+import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #e9ecef;
+  }
+`;
 
 function App() {
-  const name = 'react';
-  const style = {
-    backgroundColor: 'black',
-    color: 'aqua',
-    fontSize: 24, // 기본 단위 px
-    padding: '1rem' // 다른 단위 사용 시 문자열로 설정
-  }
-
   return (
     <>
-      <Hello />
-      <div style={style}>{name}</div>
-      <div className="gray-box"></div>
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoHead />
+        <TodoList />
+      </TodoTemplate>
     </>
   );
 }
